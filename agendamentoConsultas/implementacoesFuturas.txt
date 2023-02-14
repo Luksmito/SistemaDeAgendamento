@@ -1,0 +1,2 @@
+-Implementar o envio de email confirmando o agendamento
+-Melhorar a view de home fazendo com que o administrador consiga adicionar mais grupos de imagem/texto

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<form method="post">
+  {% csrf_token %}
+  
+  
+  <div class="form-group ">
+    <label for="fullName">Nome completo:</label>
+    <input type="text" class="form-control" id="fullName">
+    {% if form.nome.errors %}
+    <div id="alert" class="alert alert-danger">{{ form.nome.errors }}</div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="telephone">Telefone:</label>
+    <input type="tel" class="form-control" id="telephone">
+    {% if form.nome.errors %}
+    <div id="alert" class="alert alert-danger">{{ form.telefone.errors }}</div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email">
+    {% if form.nome.errors %}
+    <div id="alert" class="alert alert-danger">{{ form.email.errors }}</div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="appointment-date">Escolha uma data:</label>
+    <input type="date" id="appointment-date">
+    {% if form.data.errors %}
+    <div id="alert" class="alert alert-danger">{{ form.nome.errors }}</div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="hour">Hora:</label>
+    <select class="form-control" id="hour">
+      <option>08:00</option>
+      <option>09:00</option>
+      <option>10:00</option>
+      <option>11:00</option>
+      <option>14:00</option>
+      <option>15:00</option>
+      <option>16:00</option>
+    </select>
+    {% if form.hora.errors %}
+    <div  id="alert" class="alert alert-danger">{{ form.nome.errors }}</div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="health-insurance">Convênio: </label>
+    <select class="form-control" id="health-insurance">
+      <option value="sim">sim</option>
+      <option value="não" selected>não</option>
+    </select>
+  </div>
+  <div id="what-health-insurance" class="form-group">
+    <label for="what-health-insurance-selector">Qual convênio: </label>
+    <select class="form-control" id="what-health-insurance-selector">
+      <option value="none" selected></option>
+      <option value="unimed">Unimed</option>
+      <option value="ipsemg">IPSEMG</option>
+    </select>
+  </div>
+  <button id="botao-agenda" type="submit" class="btn btn-primary form-group">Agendar consulta</button>
+    {% if success == True %}
+    <div class="alert alert-success" role="alert">
+      Consulta agendada com sucesso! Um email será enviado confirmando os dados.
+    </div>
+    {% endif %}
+</form>
+
+
+{% endblock %}

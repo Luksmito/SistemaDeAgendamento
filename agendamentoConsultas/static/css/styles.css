@@ -29,4 +29,19 @@ body {
 
 #botao-agenda {
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Scheduling*/
+.form-control {
+    width: 70%;
+}
+
+.form-group {
+    margin-left: 50px;
+}
+
+#alert {
+    width: 70%;
+    height: 50px;
 }
