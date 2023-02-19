@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 import holidays
+from datetime import timedelta, date
 from .models import Schedule, DateAdmin
 
 class ScheduleForm(forms.ModelForm):
@@ -37,15 +38,19 @@ class ScheduleForm(forms.ModelForm):
 
     validation = {
       'valid': True,
-      'message': ''
+      'message': []
     }
 
     if date in holidays.CountryHoliday('BR'): #Verify if date is a holiday
       validation['valid'] = False
-      validation['message'] = 'Essa data é um feriado'
+      validation['message'].append('Essa data é um feriado')
     elif Schedule.objects.filter(date=date, hour=hour).exists() or DateAdmin.objects.filter(date=date).exists():
       validation['valid'] = False
-      validation['message'] = 'Essa data e hora ja tem consulta marcada'
+      validation['message'].append('Essa data e hora ja tem agendamento')
+    
+    elif date < date.today():
+      validation['valid'] = False
+      validation['message'].append('A data deve ser futura')
     return validation
       
 

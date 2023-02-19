@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime, time, date, timedelta
 import typing
 import holidays
+
 HOUR_CHOICES = [
     ('7:00', '7:00'),
     ('8:00', '8:00'),
@@ -22,6 +23,7 @@ class Schedule(models.Model):
     """
     Model to store schedule informations
     """
+    id = models.BigAutoField(primary_key=True) 
     name = models.CharField(max_length=50, blank=False, name='name', verbose_name='nome')
     date = models.DateField(blank=False, name='date', verbose_name='data')
     hour = models.TimeField(blank=False, name='hour', verbose_name='hora')

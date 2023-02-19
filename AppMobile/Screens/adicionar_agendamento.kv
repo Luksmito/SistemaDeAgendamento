@@ -1,0 +1,61 @@
+<AdicionarAgendamento@Screen>:
+    orientation: "vertical"
+    spacing: 20
+    padding: 20
+    MDGridLayout:
+        cols: 1 
+        id: tela
+        row_force_default: True 
+        row_default_height: 40 
+        spacing: 30 
+        padding: 30
+        
+        MDIconButton:
+            icon: "arrow-left"
+            on_release: root.retornar_tela_inicial()
+        MDLabel:
+            text: "Preencha o formulário"
+            font_size: 24
+            size_hint_y: None
+            height: 50
+
+        MDTextField:
+            id: nome
+            hint_text: "Nome completo"
+            size_hint_y: None
+            height: 50
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            size_hint_y: None
+            height: 50
+
+        MDTextField:
+            id: telefone
+            hint_text: "Telefone"
+            size_hint_y: None
+            height: 50
+
+        MDTextField:
+            id: horarios
+            hint_text: "Esolha um horário"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_focus: if self.focus: root.menu.open()
+
+        MDTextField:
+            hint_text: "Escolha uma data"
+            id: data_escolhida
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_focus: if self.focus: root.show_date_picker()
+        
+        MDBoxLayout:
+            MDLabel:
+                id: erro
+                color: get_color_from_hex("#ff0000")
+            
+            MDRaisedButton:
+                text: "Enviar"
+                size_hint_y: None
+                height: 50
+                on_press: root.enviar_formulario()
