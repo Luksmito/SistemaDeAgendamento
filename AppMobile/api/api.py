@@ -1,20 +1,23 @@
 import requests
 import base64
-from dotenv import load_env
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-usuario = load_env("USUARIO")
-senha = load_env("SENHA")
-url = load_env("URL")
+usuario = os.getenv('USUARIO')
+senha = os.getenv('SENHA')
+url = os.getenv('URL')
 
-auth = base64.b64encode(b"{}:{}".format(usuario, senha)).decode("utf-8")
+auth_string = f"{usuario}:{senha}".encode()
+
+auth = base64.b64encode(auth_string).decode("utf-8")
 headers = { "Authorization": f"Basic {auth}" }
 
 def api_delete(id):
     """
     Faz a requisicao para deletar o item com o id passado
     """
-    
     response = requests.delete(f"{url}/{id}/", headers=headers)
     return response
 
@@ -38,3 +41,5 @@ def api_post(body):
     except ValueError as e:
         raise e
     return response
+
+print(api_get())

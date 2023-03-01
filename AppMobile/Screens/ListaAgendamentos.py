@@ -26,8 +26,9 @@ class ListaAgendamentos(Screen):
         try:
             response = api_get()
             schedules = response
+            print(schedules)
         except:
-             schedules = [{"id": x, "name": f"Item{x}", "date": str(x)} for x in range(30)]
+             schedules = [{"id": x, "name": f"Item{x}", "date": "XX-XX-XX", "hour": str(x)} for x in range(30)]
         
         #botao que vai para a tela de adicionar agendamento
         botao_adicionar = MDRectangleFlatIconButton(
