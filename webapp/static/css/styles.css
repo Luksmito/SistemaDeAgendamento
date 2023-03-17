@@ -1,0 +1,47 @@
+.color1 {color: #95ccff;}
+.color2 {color: #e4f0ff;}
+.color3 {color: #121a35;}
+.color4 {color: #76777c;}
+.color5 {color: #e2e2e2;}
+
+/*General*/
+
+body {
+    background-color: #e4f0ff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*Navbar*/
+
+.navbar {
+    background-color: #121a35;
+}
+
+.logo {
+    font-size: 25px;
+}
+.footer {
+    background-color: #121a35;
+    color: #e4f0ff;
+}
+
+/*HomeView*/
+
+#botao-agenda {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Scheduling*/
+.form-control {
+    width: 70%;
+}
+
+.form-group {
+    margin-left: 50px;
+}
+
+#alert {
+    width: 70%;
+    height: 50px;
+}
