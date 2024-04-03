@@ -6,15 +6,15 @@ Antes de iniciar a instalação do projeto, certifique-se de ter o Python e o pi
 
 1 - Clone este repositório em sua máquina:
 
-``` git clone https://github.com/seu-usuario/seu-projeto.git```
+``` git clone https://github.com/Luksmito/SistemaDeAgendamento```
 
 Acesse o diretório raiz do projeto:
 
-```cd seu-projeto```
+```cd SistemaDeAgendamento```
 
 Instale as dependências do projeto:
 
-```pip install -r requirements.txt```
+```pip install -r requirement.txt```
 
 ##Uso
 Após a instalação das dependências, você pode executar o sistema web e o aplicativo mobile seguindo as instruções abaixo.
